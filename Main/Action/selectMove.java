@@ -1,3 +1,6 @@
+package Action;
+import objects.*;
+
 import java.util.Scanner;
 
 public class selectMove implements Action {
@@ -5,14 +8,14 @@ public class selectMove implements Action {
     public int performAction (Player p) {
         int answer;
         Scanner scan = new Scanner(System.in);
-        for (Set item : p.token.currentLocation.adjacentSets){
+        for (Set item : p.getToken().currentLocation.getAdjacentSets()){
             System.out.println(item);
         }
         System.out.println("Select the number of the desired set to move to (starting at 1)");
         try {
             answer = Integer.parseInt(scan.nextLine());
-            if (answer > 0 && answer < p.token.currentLocation.adjacentSets.size()){
-                p.token.moveToLocation(p.token.currentLocation.adjacentSets.get(answer));
+            if (answer > 0 && answer < p.getToken().currentLocation.getAdjacentSets().size()){
+                p.getToken().moveToLocation(p.getToken().currentLocation.getAdjacentSets().get(answer));
                 scan.close();
                 return 1;
             }

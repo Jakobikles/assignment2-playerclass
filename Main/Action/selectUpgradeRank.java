@@ -1,3 +1,6 @@
+package Action;
+import objects.*;
+
 import java.util.Scanner;
 
 public class selectUpgradeRank implements Action  {
@@ -6,13 +9,12 @@ public class selectUpgradeRank implements Action  {
     public int performAction(Player p){
         Scanner scan = new Scanner(System.in);
         int requestedRank;
-        char currency;
         int[] cost = {4, 10, 18, 28, 40};
         
         System.out.print("Select desired rank 2-6: ");
         try {
             requestedRank = Integer.parseInt(scan.nextLine());
-            if (requestedRank > 6 || requestedRank <= p.rank){
+            if (requestedRank > 6 || requestedRank <= p.getRank()){
                 System.out.println("Invalid rank request.");
                 scan.close();
                 return 0;
@@ -28,17 +30,17 @@ public class selectUpgradeRank implements Action  {
         scan.close();
         switch (c){
             case 'd':
-                if (p.money >= cost[requestedRank-2]){
-                    p.money = p.money - cost[requestedRank-2];
-                    p.rank = requestedRank;
+                if (p.getMoney() >= cost[requestedRank-2]){
+                    p.setMoney(p.getMoney() - cost[requestedRank-2]) ;
+                    p.setRank(requestedRank);
                     return 1;
                 } 
                 System.out.println("Not enough money.");
                 return 0;
             case 'c':
-                if (p.credits >= (requestedRank-1) * 5){
-                    p.credits = p.credits - ((requestedRank-1) * 5);
-                    p.rank = requestedRank;
+                if (p.getCredits() >= (requestedRank-1) * 5){
+                    p.setCredits(p.getCredits() - ((requestedRank-1) * 5));
+                    p.setRank(requestedRank);
                     return 1;
                 }
                 System.out.println("Not enough credits.");

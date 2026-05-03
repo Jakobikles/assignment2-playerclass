@@ -16,23 +16,27 @@ public class Player{
         this.name = name;
     }
 
+    //player carries out an action on their turn
     public int selectAction(Action action){
        return action.performAction(this);
     }
 
+    //player gains rehearsal chip
     public void addRehearsalChip (){
         this.rehearsalChips++;
     }
 
+    //rehearsal chips reset
     public void clearRehearsalChips (){
         this.rehearsalChips = 0;
     }
 
+
+    //getters
     public int getRehearsalChips() {
         return this.rehearsalChips;
     }
     
-    //getters
     public String getName(){
         return this.name;
     }

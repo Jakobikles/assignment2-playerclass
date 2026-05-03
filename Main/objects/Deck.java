@@ -9,10 +9,14 @@ public class Deck {
         this.cards = cards;
     }
 
+
+    //randomize order of scene cards
     public void shuffle(){
         return;
     }
 
+
+    //add scene cards to sets
     public void dealToSets(Board b){
         return;
     }

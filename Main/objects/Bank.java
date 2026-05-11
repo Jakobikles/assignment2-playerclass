@@ -91,7 +91,7 @@ public class Bank {
 
 
     // Converts money to credits
-    public int convertM2C(int money) {
+    public static int convertM2C(int money) {
         return (money / 2);
     }
 

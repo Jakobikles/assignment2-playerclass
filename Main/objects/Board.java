@@ -2,6 +2,8 @@ package objects;
 
 import java.util.List;
 
+import Locations.Set;
+
 public class Board {
     private List<Set> sets;
 

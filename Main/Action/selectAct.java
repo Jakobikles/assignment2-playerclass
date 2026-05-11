@@ -15,17 +15,17 @@ public class selectAct implements Action {
 
             if (p.getPlayerRole().getisStar()){
                 p.setCredits(p.getCredits() + 2) ;
-                p.getPlayerRole().getScene().decrementShots();;
+                p.getPlayerRole().getScene().getSet().decrementShots();
             } else {
                 p.setCredits(p.getCredits() + 1);
                 p.setMoney(p.getMoney()+1);
-                p.getPlayerRole().getScene().decrementShots();
+                p.getPlayerRole().getScene().getSet().decrementShots();
             }
         } else {
             if (!p.getPlayerRole().getisStar()){
                 p.setMoney(p.getMoney()+1);
             }
         }
-        return  p.getPlayerRole().getScene().getShotCounters();
+        return  p.getPlayerRole().getScene().getSet().getShotCounters();
     }
 }

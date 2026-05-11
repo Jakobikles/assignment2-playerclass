@@ -5,7 +5,7 @@ package objects;
 //import java.util.ArrayList;
 
 import javax.management.relation.Role;
-
+import Locations.*;
 import java.util.List;
 
 public class Scene {
@@ -13,10 +13,11 @@ public class Scene {
     private int id;
     private String name;
     private int budget;
-    private int shotCounters;
+
     private int remainingBudget;
     private List<Role> starRoles;
     private boolean revealed;
+    private Set set;
 
     public Scene(int id, String name, int budget, int remainingBudget, List<Role> starRoles, int shotCounters){
         this.id = id;
@@ -25,7 +26,7 @@ public class Scene {
         this.remainingBudget = remainingBudget;
         this.starRoles = starRoles;
         this.revealed = false;
-        this.shotCounters = shotCounters;
+        this.set = null;
     }
 
     // deincrements remaining budget by 1
@@ -44,9 +45,7 @@ public class Scene {
         // COME BACK TO IMPLEMENT
     }
 
-    public void decrementShots() {
-        this.shotCounters--;
-    }
+
 
 
     // Setters
@@ -56,6 +55,9 @@ public class Scene {
 
 
     // Getters
+    public Set getSet(){
+        return this.set;
+    }
     public int getBudget() {
         // COME BACK TO IMPLEMENT
         return budget;
@@ -80,9 +82,10 @@ public class Scene {
     public boolean isRevealed() {
         return revealed;
     }
-
-    public int getShotCounters() {
-        return shotCounters;
+    public void setSetter(Set s){
+        this.set = s;
     }
+
+
 
 }

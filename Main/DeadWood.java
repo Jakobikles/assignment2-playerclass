@@ -1,7 +1,8 @@
 import Action.*;
 import objects.*;
+import Locations.*;
 
-public class Main{
+public class DeadWood{
     
 }
 

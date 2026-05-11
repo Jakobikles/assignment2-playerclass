@@ -14,6 +14,12 @@ public class Player{
 
     public Player (String name) {
         this.name = name;
+        this.rank = 1;
+        this.money = 0;
+        this.credits = 0;
+        this.rehearsalChips = 0;
+        this.playerRole = null;
+        this.token = new Token();
     }
 
     //player carries out an action on their turn
@@ -26,10 +32,6 @@ public class Player{
         this.rehearsalChips++;
     }
 
-    //rehearsal chips reset
-    public void clearRehearsalChips (){
-        this.rehearsalChips = 0;
-    }
 
 
     //getters
@@ -62,6 +64,9 @@ public class Player{
     }
 
     //setters
+    public void setRehearsalChips(int r){
+        this.rehearsalChips = r;
+    }
 
     public void setName(String name){
         this.name = name;

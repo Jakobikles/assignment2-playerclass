@@ -1,10 +1,15 @@
 package objects;
+
+import Locations.*;
+
 public class Token {
-    public Set currentLocation;
+    public Location currentLocation;
     public boolean onRole;
 
-    
-    public void moveToLocation(Set s){
+    public Token (){
+
+    }
+    public void moveToLocation(Location l){
         return;
     }
 }

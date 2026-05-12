@@ -1,66 +1,59 @@
-package objects;
 // Yzerman Scukanec, Jakob Wiley 
 // Scene class for Deadwood
-
-//import java.util.ArrayList;
-
-import javax.management.relation.Role;
+package objects;
 import Locations.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Scene {
 
     private int id;
     private String name;
+    private String desc;
     private int budget;
-
     private int remainingBudget;
     private List<Role> starRoles;
     private boolean revealed;
     private Set set;
 
-    public Scene(int id, String name, int budget, int remainingBudget, List<Role> starRoles, int shotCounters){
+    public Scene(int id, String name, int budget) {
         this.id = id;
         this.name = name;
         this.budget = budget;
-        this.remainingBudget = remainingBudget;
-        this.starRoles = starRoles;
+        this.remainingBudget = budget;
+        this.starRoles = new ArrayList<>();
         this.revealed = false;
-        this.set = null;
     }
 
     // deincrements remaining budget by 1
-    public void removeBudgetDice(){
-        // COME BACK TO IMPLEMENT
+    public void removeBudgetDice() {
+        if (this.remainingBudget > 0) {
+            this.remainingBudget--;
+        }
     }
 
     // checks remaining budget dice on card
     public int checkRemainingBudget() {
-        // COME BACK TO IMPLEMENT
-        return 0;
+        return this.remainingBudget;
+    }
+    //assign scene card to a set
+    public void placeCard(Set s){
+        this.set = s;
     }
 
     // flips when player takes a starRole
     public void reveal() {
-        // COME BACK TO IMPLEMENT
+        this.revealed = true;
     }
-
-
-
 
     // Setters
     public void addStarRole(Role r) {
         starRoles.add(r);
     }
 
-
     // Getters
-    public Set getSet(){
-        return this.set;
-    }
     public int getBudget() {
-        // COME BACK TO IMPLEMENT
-        return budget;
+        return this.budget;
     }
 
     public int getID() {
@@ -79,13 +72,19 @@ public class Scene {
         return starRoles;
     }
 
+    public Set getSet(){
+        return this.set;
+    }
+
     public boolean isRevealed() {
         return revealed;
     }
-    public void setSetter(Set s){
-        this.set = s;
+
+    public String getDescription(){
+        return this.desc;
     }
 
-
-
+    public void setDescription(String s){
+        this.desc = s;
+    }
 }

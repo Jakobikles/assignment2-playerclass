@@ -12,6 +12,11 @@ public class CastingOffice extends Location {
         this.creditMap = credMap;
         this.dollarMap = moneyMap;
     }
+    public CastingOffice (){
+        super("Casting Office");
+        this.creditMap = new HashMap <Integer, Integer>();
+        this.dollarMap = new HashMap <Integer, Integer>();
+    }
 
     //display all costs for ranks
     public void displayCostOptions() {
@@ -24,6 +29,14 @@ public class CastingOffice extends Location {
         creditMap.forEach((key,value) -> {
             System.out.println("Rank:" + key + ", Cost:" + value);
         });
+    }
+
+    public void setUpgradeCost(int level, String currency, int amount){
+        if (currency.toLowerCase() == "dollar"){
+            this.dollarMap.put(level, amount);
+        } else {
+            this.creditMap.put(level, amount);
+        }
     }
 
 }

@@ -1,6 +1,6 @@
 package Action;
-import objects.Player;
 import objects.Bank;
+import objects.Player;
 
 public interface Action {
     int performAction (Player p);

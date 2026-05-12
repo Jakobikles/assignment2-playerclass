@@ -1,5 +1,5 @@
 package Locations;
-//import Action.*;
+import Action.*;
 import objects.*;
 import java.util.*;
 
@@ -35,6 +35,10 @@ public abstract class Location {
             this.PlayerList.remove(p);
         }
         return;
+    }
+
+    public void addAdjacentSet(Location l){
+        this.adjacentLocations.add(l);
     }
 
     public boolean validateLocation (){

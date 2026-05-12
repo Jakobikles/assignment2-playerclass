@@ -37,6 +37,11 @@ public class Set extends Location {
         this.offCardRoles = roles;
     }
 
+    public Set (String n){
+        super(n);
+        this.scene = null;
+    }
+
     public List<Role> getAvailableRoles() {
         return this.offCardRoles;
     }
@@ -47,6 +52,11 @@ public class Set extends Location {
 
     public void decrementShots() {
         this.shotCounters--;
+    }
+
+    //decrements number of current active sets
+    public void wrap(){
+        activeSets--;
     }
 
     //method to wrap set when shot counters reach 0
@@ -72,6 +82,10 @@ public class Set extends Location {
         this.shotCounters = this.origShotCounters;
         activeSets++;
         return;
+    }
+
+    public void addSideRole(Role r){
+        this.offCardRoles.add(r);
     }
 
 
@@ -104,7 +118,9 @@ public class Set extends Location {
         this.name = n;
     }
 
-
+    public void setShotCounters(int i){
+        this.shotCounters = i;
+    }
 
     public void setScene (Scene s){
         this.scene = s;

@@ -73,14 +73,14 @@ public class XMLParser {
             for (String neighborName : entry.getValue()) {
                 Location neighbor = setsByName.get(neighborName);
                 if (neighbor != null) {
-                    thisSet.addAdjacentSet(neighbor);
+                    thisSet.addNeighbor(neighbor);
                 } else {
                     System.out.println("[Parser] Warning: neighbor '" + neighborName
                             + "' not found for set '" + entry.getKey() + "'");
                 }
             }
         }
-        System.out.println("[Parser] Board loaded: " + board.getSets().size() + " locations.");
+        System.out.println("[Parser] Board loaded: " + board.getLocations().size() + " locations.");
         return board;
     }
 

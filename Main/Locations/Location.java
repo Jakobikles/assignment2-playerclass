@@ -1,7 +1,6 @@
 package Locations;
-import Action.*;
-import objects.*;
 import java.util.*;
+import objects.*;
 
 
 
@@ -36,21 +35,30 @@ public abstract class Location {
         }
         return;
     }
-
-    public void addAdjacentSet(Location l){
-        this.adjacentLocations.add(l);
+    
+    public void addPlayer (Player p){
+        if (!this.PlayerList.contains(p)){
+            this.PlayerList.add(p);
+        }
+        return;
     }
 
-    public boolean validateLocation (){
-        return false;
+    public ArrayList<Player> getPlayerList(){
+        return this.PlayerList;
     }
 
-    public ArrayList<Location> getadjacentLocations(){
+    public ArrayList<Location> getAdjacentLocations(){
         return this.adjacentLocations;
     }
 
-    public void setadjacentLocations(ArrayList<Location> a){
+    public void setAdjacentLocations(ArrayList<Location> a){
         this.adjacentLocations = a;
     }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public abstract char returnType();
 
 }

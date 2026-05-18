@@ -1,7 +1,7 @@
 package objects;
 
 
-import Action.*;
+//import Action.*;
 
 public class Player{
     private String name;
@@ -23,13 +23,30 @@ public class Player{
     }
 
     //player carries out an action on their turn
-    public int selectAction(Action action){
-       return action.performAction(this);
-    }
+    // public int selectAction(Action action){
+    //    return action.performAction(this);
+    // }
 
     //player gains rehearsal chip
     public void addRehearsalChip (){
         this.rehearsalChips++;
+    }
+
+    public void displayInfo(){
+        System.out.println("Player: " + this.name);
+        System.out.println("Rank: " + this.rank);
+        System.out.println("Money: " + this.money);
+        System.out.println("Credits: " + this.credits);
+        if (this.playerRole != null) {
+            System.out.println("Current Role: " + this.playerRole.getName());
+            System.out.println("Rehearsal Chips: " + this.rehearsalChips);
+        } else {
+            System.out.println("Current Role: None");
+        }
+    }
+
+    public int computeFinalScore() {
+        return this.rank * 5 + this.money + this.credits;
     }
 
 
@@ -72,7 +89,7 @@ public class Player{
         this.name = name;
     }
    
-    public void getRank(int rank) {
+    public void setRank(int rank) {
         this.rank = rank;
     }
     
@@ -92,9 +109,6 @@ public class Player{
         this.token = t;
     }
 
-    public void setRank(int n){
-        this.rank = n;
-    }
 
     }
 

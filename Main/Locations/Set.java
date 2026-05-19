@@ -1,16 +1,15 @@
 package Locations;
 import java.util.*;
 
-import objects.Player;
-import objects.Role;
-import objects.Scene;
+import objects.*;
+
 
 
 
 public class Set extends Location {
     //private String name;
     //private ArrayList<Set> adjacentLocations;
-    private static int activeSets;
+    private static int activeSets = 10;
     private ArrayList<Role> offCardRoles;
     private Scene scene;
     private boolean shootingCompleted;
@@ -33,11 +32,13 @@ public class Set extends Location {
         this.origShotCounters = shots;
         this.shotCounters = shots;
         this.offCardRoles = roles;
+
     }
 
     public Set (String n){
         super(n);
         this.scene = null;
+        this.offCardRoles = new ArrayList<Role>();
     }
 
 

@@ -134,7 +134,10 @@ public class GameManager {
                 case "act" -> {
                     if (hasActed) {
                         System.out.println("You have already acted or rehearsed this turn.");
-                    } else if (cmdAct(player)) {
+                    } else if (hasMoved) {
+                        System.out.println("You cannot act after moving.");
+                    }
+                     else if (cmdAct(player)) {
                         hasActed = true;
                     }
                 }
@@ -528,11 +531,11 @@ public class GameManager {
         System.out.println("╚══════════════════════════════════╝");
 
         // Converted remaining money to credits
-        for (Player p : players) {
-            int bonus = Bank.convertM2C(p.getMoney());
-            p.setCredits(p.getCredits() + bonus);
-            p.setMoney(0);
-        }
+        //for (Player p : players) {
+            //int bonus = Bank.convertM2C(p.getMoney());
+            //p.setCredits(p.getCredits() + bonus);
+            //p.setMoney(0);
+        //}
 
         List<Player> ranked = new ArrayList<>(players);
         ranked.sort(Comparator.comparingInt(Player::computeFinalScore).reversed());
@@ -544,12 +547,12 @@ public class GameManager {
             if (score != prevScore) {
                 rank = ranked.indexOf(p) + 1;
             }
-            System.out.printf("%d. %-20s %d pts  ($%d + %dcr)%n",
-                    rank, p.getName(), score, p.getMoney(), p.getCredits());
+            System.out.printf("%d. %-20s %d pts  ($%d + %dcr + %drank*5)%n",
+                    rank, p.getName(), score, p.getMoney(), p.getCredits(), p.getRank());
             prevScore = score;
         }
 
-        // Announce winne
+        // Announce winner
         int topScore = ranked.get(0).computeFinalScore();
         List<String> winners = new ArrayList<>();
         for (Player p : ranked) {

@@ -33,7 +33,7 @@ public class CastingOffice extends Location {
     }
 
     public void setUpgradeCost(int level, String currency, int amount){
-        if (currency.toLowerCase() == "dollar"){
+        if (currency.equals("dollar")){
             this.costMap.get(level).setDollarCost(amount);
         } else {
             this.costMap.get(level).setCreditCost(amount);
